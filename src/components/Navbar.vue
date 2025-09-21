@@ -5,12 +5,13 @@ import NavigationMenuItem from "./ui/navigation-menu/NavigationMenuItem.vue";
 import Input from "./ui/input/Input.vue";
 import Button from "./ui/button/Button.vue";
 import SvgIcon from "@jamescoyle/vue-icon";
-import {
-  mdiAccountCircleOutline,
-  mdiBell,
-  mdiDotsGrid,
-  mdiMagnify,
-} from "@mdi/js";
+import { mdiBell, mdiMagnify, mdiDotsGrid } from "@mdi/js";
+import { CircleUserRound } from "lucide-vue-next";
+import DotGritDropdown from "./DotGritDropdown.vue";
+
+const sayHello = () => {
+  console.log("Hello World from Composition API!");
+};
 </script>
 
 <template>
@@ -30,7 +31,7 @@ import {
             id="search"
             type="text"
             placeholder="Search..."
-            class="pr-10"
+            class="pl-3 pr-10 w-full border-0 bg-black/5"
           />
           <span
             class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500"
@@ -46,18 +47,16 @@ import {
           <Button variant="brand" class="font-semibold">Post</Button>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Button variant="circle">
-            <SvgIcon type="mdi" :path="mdiDotsGrid" />
+          <DotGritDropdown />
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Button variant="circle" size="icon" onclick="">
+            <SvgIcon type="mdi" :path="mdiBell" class="!w-5 !h-5" />
           </Button>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Button variant="circle">
-            <SvgIcon type="mdi" :path="mdiBell" :size="36" />
-          </Button>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Button variant="circle">
-            <SvgIcon type="mdi" :path="mdiAccountCircleOutline" :size="36" />
+          <Button variant="circle" size="icon">
+            <CircleUserRound class="!w-6 !h-6" />
           </Button>
         </NavigationMenuItem>
       </section>
